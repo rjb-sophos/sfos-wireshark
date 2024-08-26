@@ -1,0 +1,30 @@
+# sfos-wireshark
+<<<<<<< HEAD
+A wireshark plugin to detect and decode data packets created by SFOS and associated tools
+
+It currently supports:
+- SATC protocol, used by the Sophos Endpoint agent on Windows to communicate information about the user account in which each network connection was created
+- STAS protocol, used by the Sophos Firewall to communicate with STAS Agents and Collectors to find out about user logins associated with local IP addresses
+
+It adds a number of dissected data fields to Wireshark that can be used for filtering packets and displaying in Wireshark's tabular view of packets. These all come under the following hierarchy:
+
+- sfos.stas.*
+- sfos.satc.*
+
+![Screenshot of Wireshark dissecting SATC packets](docs/wireshark-with-satc.png)
+
+To use this plugin on your Wireshark installation, download the attached lua file and put it into your Wireshark plugin folder.
+
+For Windows users, you should have, or create, a folder at `%APPDATA%\Wireshark\plugins`
+
+For Mac or Linux users, you can put it at `~/.local/lib/wireshark/plugins/`
+
+You can also install it as a global plugin. I'll leave it to you to work out how to do that.
+=======
+Scripts to dissect SFOS packets in a packet capture using Wireshark
+
+This lua script can be added to a Wireshark installation by dropping it into the appropriate directory - see notes in the .lua file.
+The dissector currently focuses on identifying an interpreting packets sent on the network by the following features:
+- SATC - Used to provide user identity for TCP connections from a multi-user Windows system. Packets are sent by Server Protection (or, in the past, the SATC client) to the Firewall and responses sent back.
+- STAS - Used to assign user identity to IP addresses based on Windows logins monitored via Domain Controller logs and/or WMI queries directly to devices. Packets are exchanged between STAS agents running on Windows Servers and your Firewalls.
+>>>>>>> 90f0ec261d0689075b15c7ee1e71dd35ee82c535

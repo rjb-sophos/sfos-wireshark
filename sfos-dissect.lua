@@ -1,7 +1,5 @@
 -- sfos-dissect.lua
 --
--- By rjb@sophos.com
---
 -- A wireshark dissector for STAS and SATC packets
 --
 -- Dissection of STAS may be incomplete!	
